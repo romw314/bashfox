@@ -4,7 +4,7 @@ A small bash script builder/framework.
 ## Installation
 ### Using an install script (Recommended)
 ```bash
-curl -sL https://github.com/romw314/bashfox/raw/master/install.bash | bash
+curl -L https://github.com/romw314/bashfox/raw/master/install.bash | bash
 . ~/.bashrc
 ```
 Please note that the install script modifies your `.bashrc`, which means that you need to use `. ~/.bashrc` in order to use BashFOX.
