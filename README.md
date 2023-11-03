@@ -19,6 +19,12 @@ cp bashfox.bash ~/.local/bin/bashfox
 ```
 Please ensure that `~/.local/bin` is in your path after manual installation.
 
+## Uninstallation
+If you installed BashFOX with the install script uninstall it with:
+```bash
+curl -L https://github.com/romw314/bashfox/raw/master/uninstall.bash | bash
+```
+
 ## Usage
 Write your code to `main.bash`, for example:
 ```bash
