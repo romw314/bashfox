@@ -15,7 +15,7 @@ git clone https://github.com/romw314/bashfox
 cd bashfox
 chmod 755 bashfox.bash
 mkdir -p ~/.local/bin
-cp bashfox.bash ~/.local/bin/
+cp bashfox.bash ~/.local/bin/bashfox
 ```
 Please ensure that `~/.local/bin` is in your path after manual installation.
 
