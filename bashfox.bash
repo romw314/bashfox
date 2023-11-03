@@ -74,4 +74,4 @@ fi
 cmd="$1"
 shift
 __fox_"$cmd" "$@"
-echo >&2 "${GREEN}SUCCESS${RESET}"
+[ -z "$_FOX_NOBANNER" ] && echo >&2 "${GREEN}SUCCESS${RESET}"
