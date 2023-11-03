@@ -47,6 +47,7 @@ __fox__buildfile() {
 				*) echo "$cmd $extra";;
 			esac
 		done
+		echo "### End $1"
 	) < "$1"
 }
 
