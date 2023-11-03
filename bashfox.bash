@@ -43,6 +43,7 @@ __fox__buildfile() {
 				error  ) echo   "          echo    '${RED}[  ERR ]' $extra '${RESET}' && exit 1";;
 				fatal  ) echo   "          echo    '${RED}[ FATAL]' $extra '${RESET}' && exit 2";;
 				include) "$0" _buildfile "$extra";;
+				import ) cat "$extra";;
 				*) echo "$cmd $extra";;
 			esac
 		done
