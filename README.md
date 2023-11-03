@@ -3,6 +3,7 @@ A small bash script builder/framework.
 
 ## Installation
 ### Using an install script (Recommended)
+By this way, you will need Bash, cURL, Perl, and coreutils installed. You will not need Git.
 ```bash
 curl -L https://github.com/romw314/bashfox/raw/master/install.bash | bash
 . ~/.bashrc
@@ -10,6 +11,7 @@ curl -L https://github.com/romw314/bashfox/raw/master/install.bash | bash
 Please note that the install script modifies your `.bashrc`, which means that you need to use `. ~/.bashrc` in order to use BashFOX.
 
 ### Manually
+This way you will need Git and coreutils installed.
 ```bash
 git clone https://github.com/romw314/bashfox
 cd bashfox
@@ -20,10 +22,13 @@ cp bashfox.bash ~/.local/bin/bashfox
 Please ensure that `~/.local/bin` is in your path after manual installation.
 
 ## Uninstallation
+You will need Bash, cURL, Perl, and coreutils installed. You will not need Git.
 If you installed BashFOX with the install script uninstall it with:
 ```bash
 curl -L https://github.com/romw314/bashfox/raw/master/uninstall.bash | bash
 ```
+
+Elsewhere, simply remove the symlink from `~/.local/bin`.
 
 ## Usage
 Write your code to `main.bash`, for example:
