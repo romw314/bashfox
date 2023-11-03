@@ -36,12 +36,13 @@ __fox__buildfile() {
 		declare line
 		while read cmd extra; do
 			case "$cmd" in
-				debug ) echo   "${FDB} && echo   '${BLUE}[ DEBUG] $1: ' $extra '${RESET}'";;
-				notice) echo   "          echo   '${CYAN}[NOTICE]' $extra '${RESET}'";;
-				info  ) echo   "          echo   '${CYAN}[ FATAL]' $extra '${RESET}'";;
-				warn  ) echo   "          echo '${YELLOW}[ WARN ]' $extra '${RESET}'";;
-				error ) echo   "          echo    '${RED}[  ERR ]' $extra '${RESET}' && exit 1";;
-				fatal ) echo   "          echo    '${RED}[ FATAL]' $extra '${RESET}' && exit 2";;
+				debug  ) echo   "${FDB} && echo   '${BLUE}[ DEBUG] $1: ' $extra '${RESET}'";;
+				notice ) echo   "          echo   '${CYAN}[NOTICE]' $extra '${RESET}'";;
+				info   ) echo   "          echo   '${CYAN}[ FATAL]' $extra '${RESET}'";;
+				warn   ) echo   "          echo '${YELLOW}[ WARN ]' $extra '${RESET}'";;
+				error  ) echo   "          echo    '${RED}[  ERR ]' $extra '${RESET}' && exit 1";;
+				fatal  ) echo   "          echo    '${RED}[ FATAL]' $extra '${RESET}' && exit 2";;
+				include) "$0" _buildfile "$extra";;
 				*) echo "$cmd $extra";;
 			esac
 		done
