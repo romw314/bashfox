@@ -101,7 +101,7 @@ SOURCE=.              # The directory where main.bash is, for example, src
 ```
 
 ### Compilation and running
-```
+```bash
 $ bashfox
 BashFOX by romw314
 SUCCESS
