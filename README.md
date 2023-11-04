@@ -28,11 +28,27 @@ If you installed BashFOX with the install script uninstall it with:
 curl -L https://github.com/romw314/bashfox/raw/master/uninstall.bash | bash
 ```
 
-Elsewhere, simply remove the symlink from `~/.local/bin`.
+Elsewhere, simply remove the symlink from `~/.local/bin`:
+```bash
+rm ~/.local/bin/bashfox
+```
 
 ## Usage
-Write your code to `main.bash`, for example:
+Write your code to `.bash` files. See the examples for more information.
+
+Write your entry code to `main.bash`.
+
+Write your configuration to `bashfox.conf` (see the examples).
+
+Compile it using `bashfox`.
+
+## Example
+
+### `src/main.bash`
 ```bash
+# It's important to not place comments on the same line as `import`, `debug`, `warn`, or any other BashFOX command.
+# `import` imports a script without building it (useful for importing libraries that are already built, see lib/lib.bash)
+import lib/lib.bash
 debug  "This shows only if you use DEBUG=1"
 notice "EXAMPLE notice"
 info   "hello"
@@ -40,19 +56,55 @@ warn   "There is no useful code in this script"
 if [ "$1" == "hello" ]; then
 	fatal "The first argument shouldn't be 'hello'"
 fi
+# Include is the same as `import`, but builds the script.
+# Script imported by `include` can contain BashFOX commands.
+include extras/help.bash
 error "Something went wrong"
 ```
 
-Write your configuration to `bashfox.conf`, for example:
+### `extras/help.bash`
+```bash
+# lib.bash is imported only once because of the _LIB_BASH variable.
+import lib/lib.bash
+
+if [ "$1" == "help" ]; then
+	info "USAGE:"
+	info "$0 $(lib.wrap_in_brackets help) ..."
+	info "Don't pass 'hello' to the first argument!"
+	exit
+fi
+```
+
+### `lib/lib.bash`
+```bash
+# Here we can't use BashFOX commands.
+
+if [ -z "$_LIB_BASH" ]; then
+	_LIB_BASH= # We don't export this, because we want to re-import the library in scripts executed (not imported) from main.bash.
+
+	# This library is named 'lib'. We don't have namespaces in bash, but we can declare functions with a dot.
+	lib.wrap_in_brackets() {
+		declare result='' # Declare uses local variables unless -g is passed, so it is right here.
+		while (( "$#" )); do
+			result="$result $1"
+			shift
+		done
+		echo "${result:1}"
+	}
+fi
+```
+
+### `bashfox.conf`
 ```
 OUTPUT=outscript.bash # The output bash script
 SOURCE=.              # The directory where main.bash is, for example, src
 ```
 
-Compile it by running `bashfox`.
-
-Run the compiled script. Example:
+### Compilation and running
 ```
+$ bashfox
+BashFOX by romw314
+SUCCESS
 $ ./outscript.bash
 [NOTICE] EXAMPLE notice
 [ INFO ] hello
@@ -63,4 +115,11 @@ $ ./outscript.bash hello
 [ INFO ] hello
 [ WARN ] There is no useful code in this script
 [ FATAL] The first argument shouldn't be 'hello'
+$ ./outscript.bash help
+[NOTICE] EXAMPLE notice
+[ INFO ] hello
+[ WARN ] There is no useful code in this script
+[ INFO ] USAGE:
+[ INFO ] ./outscript.bash [help] ...
+[ INFO ] Don't pass 'hello' to the first argument!
 ```
