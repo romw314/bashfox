@@ -46,7 +46,7 @@ Compile it using `bashfox`.
 
 ### `src/main.bash`
 ```bash
-# It's important to not place comments on the same line as `import`, `debug`, `warn`, or any other BashFOX command.
+# It's important not to place comments on the same line as `import`, `debug`, `warn`, or any other BashFOX command.
 # `import` imports a script without building it (useful for importing libraries that are already built, see lib/lib.bash)
 import lib/lib.bash
 debug  "This shows only if you use DEBUG=1"
