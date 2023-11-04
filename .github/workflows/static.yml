@@ -31,12 +31,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup the static website
+        run: |
+          mkdir -p website
+          cp -vf install.bash website/install.bash
+          cp -vf uninstall.bash website/uninstall.bash
+          mv website/index.html ./
+          echo '<script>document.addEventListener('DOMContentLoaded',()=>body.style['background-color']='pink');</script>' > pink.html
+          cat index.html pink.html > website/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload entire repository
           path: './website'
       - name: Deploy to GitHub Pages
         id: deployment
