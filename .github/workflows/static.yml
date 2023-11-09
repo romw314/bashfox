@@ -42,7 +42,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4.0.0
       - run: npm install -g markdown-to-html
-      - run: github-markdown README.md > website/index.html
+      - run: github-markdown --title 'BashFOX' --flavor gfm README.md > website/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
