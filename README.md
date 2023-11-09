@@ -48,7 +48,7 @@ Compile it using `bashfox`.
 ```bash
 # It's important not to place comments on the same line as `import`, `debug`, `warn`, or any other BashFOX command.
 # `import` imports a script without building it (useful for importing libraries that are already built, see lib/lib.bash)
-import lib/lib.bash
+import ../lib/lib.bash
 debug  "This shows only if you use DEBUG=1"
 notice "EXAMPLE notice"
 info   "hello"
@@ -62,10 +62,10 @@ include extras/help.bash
 error "Something went wrong"
 ```
 
-### `extras/help.bash`
+### `src/extras/help.bash`
 ```bash
 # lib.bash is imported only once because of the _LIB_BASH variable.
-import lib/lib.bash
+import ../../lib/lib.bash
 
 if [ "$1" == "help" ]; then
 	info "USAGE:"
@@ -97,7 +97,7 @@ fi
 ### `bashfox.conf`
 ```
 OUTPUT=outscript.bash # The output bash script
-SOURCE=.              # The directory where main.bash is, for example, src
+SOURCE=src            # The directory where main.bash is
 ```
 
 ### Compilation and running
