@@ -4,8 +4,10 @@ a {
 code {
   color: red;
   background-color: lightgray;
+  border: 1px solid brown;
 }
 .highlight {
   color: green;
   background-color: lightgray;
+  border: 3px solid black;
 }
