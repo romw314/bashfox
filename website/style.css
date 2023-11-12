@@ -12,6 +12,7 @@ code {
   background-color: lightgray;
   border: 3px solid black;
   display: block;
+  position: relative;
   max-width: 100%;
   width: 100%;
 }
