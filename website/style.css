@@ -3,7 +3,9 @@ a {
 }
 code {
   color: red;
+  background-color: lightgray;
 }
 .highlight {
   color: green;
+  background-color: lightgray;
 }
