@@ -12,4 +12,5 @@ code {
   background-color: lightgray;
   border: 3px solid black;
   display: block;
+  width: 100%;
 }
