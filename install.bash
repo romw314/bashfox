@@ -4,7 +4,7 @@ tput civis
 if [ -z "$NO_FOX" ]; then
 	echo "BashFOX installer"
 	echo "BashFOX is created by romw314"
-	echo "https://romw314.github.io/bashfox"
+	echo "https://h10.ngw1.rf.gd/bashfox"
 	echo
 	echo -ne "Installing... [...........]\x1B[12D"
 	rm -rf ~/.bashfox
