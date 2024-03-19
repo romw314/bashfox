@@ -8,7 +8,7 @@ blocks:
   - name: 'Block #1'
     task:
       prologue:
-      	commands:
+        commands:
           - checkout
           - bash install.bash
       jobs:
@@ -16,6 +16,6 @@ blocks:
           commands:
             - bash --rcfile "$HOME"/.bashrc -c "which bashfox"
         - name: Uninstall
-        	commands:
-          	- bash uninstall.bash
+          commands:
+            - bash uninstall.bash
             - bash --rcfile "$HOME"/.bashrc -c "! which bashfox"
