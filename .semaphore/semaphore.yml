@@ -7,9 +7,9 @@ agent:
 blocks:
   - name: 'Block #1'
     task:
-    	prologue:
+      prologue:
       	commands:
-        	- checkout
+          - checkout
           - bash install.bash
       jobs:
         - name: Install
