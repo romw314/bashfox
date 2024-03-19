@@ -46,15 +46,17 @@ Compile it using `bashfox`.
 
 ### `src/main.bash`
 ```bash
-# It's important not to place comments on the same line as `import`, `debug`, `warn`, or any other BashFOX command.
-# `import` imports a script without building it (useful for importing libraries that are already built, see lib/lib.bash)
+# It's important not to place comments on the same line
+# as `import`, `debug`, `warn`, or any other BashFOX command.
+# `import` imports a script without building it
+# (useful for importing libraries that are already built, see lib/lib.bash)
 import ../lib/lib.bash
 debug  "This shows only if you use DEBUG=1"
 notice "EXAMPLE notice"
 info   "hello"
 warn   "There is no useful code in this script"
 if [ "$1" == "hello" ]; then
-	fatal "The first argument shouldn't be 'hello'"
+  fatal "The first argument shouldn't be 'hello'"
 fi
 # Include is the same as `import`, but builds the script.
 # Script imported by `include` can contain BashFOX commands.
@@ -68,10 +70,10 @@ error "Something went wrong"
 import ../../lib/lib.bash
 
 if [ "$1" == "help" ]; then
-	info "USAGE:"
-	info "$0 $(lib.wrap_in_brackets help) ..."
-	info "Don't pass 'hello' to the first argument!"
-	exit
+  info "USAGE:"
+  info "$0 $(lib.wrap_in_brackets help) ..."
+  info "Don't pass 'hello' to the first argument!"
+  exit 0
 fi
 ```
 
@@ -80,17 +82,22 @@ fi
 # Here we can't use BashFOX commands.
 
 if [ -z "$_LIB_BASH" ]; then
-	_LIB_BASH= # We don't export this, because we want to re-import the library in scripts executed (not imported) from main.bash.
+  # We don't export this, because we want to re-import the library
+  # in scripts executed (not imported) from main.bash.
+  _LIB_BASH=1
 
-	# This library is named 'lib'. We don't have namespaces in bash, but we can declare functions with a dot.
-	lib.wrap_in_brackets() {
-		declare result='' # Declare uses local variables unless -g is passed, so it is right here.
-		while (( "$#" )); do
-			result="$result $1"
-			shift
-		done
-		echo "${result:1}"
-	}
+  # This library is named 'lib'.
+  # We don't have namespaces in bash,
+  # but we can declare functions with a dot.
+  lib.wrap_in_brackets() {
+    # Declare uses local variables unless -g is passed, so it is right here.
+    declare result=''
+    while (( "$#" )); do
+      result="$result [$1]"
+      shift
+    done
+    echo "${result:1}"
+  }
 fi
 ```
 
