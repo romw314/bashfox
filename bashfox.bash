@@ -30,8 +30,10 @@ __fox__fatal() {
 
 __fox__buildfile() {
 	(
+		echo "#!/usr/bin/env bash"
 		echo "### $1"
 		echo "### Created with BashFOX"
+		echo "### https://h10.ngw1.rf.gd/bashfox"
 		echo "${FDB} && echo '${BLUE}[ DEBUG] $1: BashFOX debugger started${RESET}'"
 		declare line
 		while read cmd extra; do
