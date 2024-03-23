@@ -17,5 +17,5 @@ blocks:
             - bash --rcfile "$HOME"/.bashrc -ic "which bashfox"
         - name: Uninstall
           commands:
-            - bash uninstall.bash
+            - UBFORCE=1 bash uninstall.bash
             - bash --rcfile "$HOME"/.bashrc -ic "! which bashfox"
