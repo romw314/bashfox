@@ -1,10 +1,12 @@
 #!/bin/bash
 echo "UNINSTALLING BASHFOX"
-randstr="$(base64 /dev/urandom -w6 | grep -v '/' | head -n1)"
-echo
-echo "--- CHECK ---"
-read -p "Enter $randstr to proceed: " check
-[ "$check" = "$randstr" ] || ( echo "Abort" && exit )
+if [ ! "$UBFORCE" ]; then
+	randstr="$(base64 /dev/urandom -w6 | grep -v '/' | head -n1)"
+	echo
+	echo "--- CHECK ---"
+	read -p "Enter $randstr to proceed: " check
+	[ "$check" = "$randstr" ] || ( echo "Abort" && exit )
+fi
 echo
 echo "--- UNINSTALL ---"
 rm -vrf ~/.bashfox

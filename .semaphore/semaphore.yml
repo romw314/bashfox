@@ -1,0 +1,21 @@
+version: v1.0
+name: test
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Main
+    task:
+      prologue:
+        commands:
+          - checkout
+          - bash install.bash
+      jobs:
+        - name: Install
+          commands:
+            - bash --rcfile "$HOME"/.bashrc -ic "which bashfox"
+        - name: Uninstall
+          commands:
+            - UBFORCE=1 bash uninstall.bash
+            - bash --rcfile "$HOME"/.bashrc -ic "! which bashfox"
