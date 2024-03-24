@@ -14,9 +14,13 @@ code {
   position: relative;
   max-width: 100%;
   width: 100%;
-  padding: 1em;
-  margin: 1em;
+  padding: 0.5rem;
+  margin: 0.5rem;
   border: 0;
+}
+pre code {
+  border: 0;
+  background-color: transparent;
 }
 span.pl-pds { color: red; }
 span.pl-s   { color: darkgreen; }
