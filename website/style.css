@@ -7,7 +7,7 @@ code {
   border: 1px solid brown;
   display: inline-block;
 }
-.highlight,pre code {
+.highlight,pre {
   color: green;
   background-color: lightgray;
   border: 3px solid black;
