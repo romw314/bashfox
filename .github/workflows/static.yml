@@ -44,9 +44,9 @@ jobs:
       - run: npm install -g markdown-to-html node-inject-html-cli
       - run: |
           github-markdown --stylesheet /bashfox/style.css --title 'BashFOX' README.md > website/index.html
-          inject-html -f website/index.html --headEnd "$CF_ANALYTICS"
+          inject-html -f website/index.html --headEnd "$ANALYTICS"
         env:
-          CF_ANALYTICS: ${{ vars.CF_ANALYTICS }}
+          ANALYTICS: ${{ secrets.ANALYTICS }}
       - uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
