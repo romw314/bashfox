@@ -16,9 +16,10 @@ code {
   width: 100%;
   padding: 1em;
   margin: 1em;
+  border: 0;
 }
 span.pl-pds { color: red; }
-span.pl-s   { color: orange; }
+span.pl-s   { color: darkgreen; }
 span.pl-c   { color: gray; }
 span.pl-k   { color: black; }
 span.pl-smi { color: blue; }
