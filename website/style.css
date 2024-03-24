@@ -7,7 +7,7 @@ code {
   border: 1px solid brown;
   display: inline-block;
 }
-.highlight {
+.highlight,pre code {
   color: green;
   background-color: lightgray;
   border: 3px solid black;
@@ -16,3 +16,8 @@ code {
   max-width: 100%;
   width: 100%;
 }
+.pl-pds { color: red; }
+.pl-s   { color: orange; }
+.pl-c   { color: gray; }
+.pl-k   { color: black; }
+.pl-smi { color: blue; }
