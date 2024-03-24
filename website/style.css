@@ -10,14 +10,12 @@ code {
 .highlight,pre {
   color: green;
   background-color: lightgray;
-  border: 3px solid black;
   display: block;
   position: relative;
   max-width: 100%;
   width: 100%;
-}
-.highlight pre {
-  border: 0;
+  padding: 1em;
+  margin: 1em;
 }
 span.pl-pds { color: red; }
 span.pl-s   { color: orange; }
