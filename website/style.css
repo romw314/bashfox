@@ -16,8 +16,8 @@ code {
   max-width: 100%;
   width: 100%;
 }
-.pl-pds { color: red; }
-.pl-s   { color: orange; }
-.pl-c   { color: gray; }
-.pl-k   { color: black; }
-.pl-smi { color: blue; }
+span.pl-pds { color: red; }
+span.pl-s   { color: orange; }
+span.pl-c   { color: gray; }
+span.pl-k   { color: black; }
+span.pl-smi { color: blue; }
